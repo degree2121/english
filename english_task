@@ -1,0 +1,108 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h> 
+#include <time.h>
+
+void swap(int* p, int* p1) {
+	int temp;
+	temp = *p;
+	*p = *p1;
+	*p1 = temp;
+}
+
+
+
+
+
+void main() {
+	printf("영어 수행평가 연습기  \n1를 눌러 다음으로 넘기기, 2를 눌러 패스 \n3를 눌러 시작\n해당 프로그램은 50초가 넘은 상태에서 작동하다가 1이나 2를 누를경우 넘은지 감지하는 방식이기 때문에\n50초가 넘을수 있습니다.\n");
+	int random[] = { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0 };
+	int k, i, j;
+	srand(time(NULL));
+	for (i = 0; i < 20; ) {
+		random[i] = rand() % 20 + 1;
+		for (j = 0, k = 0; j < i; j++) {
+			if (random[i] == random[j]) {
+				k = 1; break;
+			}
+		}
+		if (k == 0)
+			i = i + 1;
+	}
+
+	int f;
+	scanf_s("%d", &f);
+	clock_t start = clock();
+	while (f == 3) {
+		while ((clock() - start) / CLOCKS_PER_SEC < 50.0f) {
+			if (random[0] == 1)
+				printf("A : __________________? (경험 묻고 답하기) \nB : yes, I have\n\n");
+			else if (random[0] == 2)
+				printf("꿈에 도달하기 위해 작은 단계들부터 시작하세요. \n_____ with _____ steps _____ _____ _____ _____.\n\n");
+			else if (random[0] == 3)
+				printf("난 너가 좋은 수의사가 되길 바라.\nI _____ you can _____ a _____ _____.\n\n");
+			else if (random[0] == 4)
+				printf("난 내가 꿈을 이룰 수 있을지 궁금해. \nI _____ _____ i can ______ _____ _____.\n\n");
+			else if (random[0] == 5)
+				printf("나는 전 세계를 여행할 기회를 잡을거야. \nI will _____ a chance _____ _____ around the world\n\n");
+			else if (random[0] == 6)
+				printf("A : What would you like to order? \nB : ____________________.(음식 주문하기1)\n\n");
+			else if (random[0] == 7)
+				printf("A:_________________________?\nB : I will have it at home\n\n");
+			else if (random[0] == 8)
+				printf("그 음식은 내가 지칠때 기분을 좋게 만들어줘.\nIt _____ _____ _____ _____ when i _____ _____ _____\n\n");
+			else if (random[0] == 9)
+				printf("우리 아빠는 내가 잘 낫도록 수프를 만들어주셨어.\nMy father _____ _____ a _____ of _____ so _____ I _____ _____ well\n\n");
+			else if (random[0] == 10)
+				printf("A : Excuse me, but ______________________________? (반복 설명 요청하기) \nB : I said, Break a leg.\n\n");
+			else if (random[0] == 11)
+				printf("A : Pizza is not my cup of tea.\nB : _________________________? (설명 요청하기)");
+			else if (random[0] == 12)
+				printf("champo란 단어는 \"누르다\"를 의미 하는데 힌디어다. \nThe word Champo, _____ _____ \"_____ _____\",_____ _____.\n\n");
+			else if (random[0] == 13)
+				printf("몇몇 영단어는 다른 언어에서 왔다는 사실은 흥미롭다. \nIt is _____ _____ some _____ _____ _____ _____ other _____.\n\n");
+			else if (random[0] == 14)
+				printf("이 가방에 무슨 문제가 있나요? \n_____ _____ _____ _____ _____ this bag?\n\n");
+			else if (random[0] == 15)
+				printf("이 책 환불받을 수 있나요? \n_____ i _____ my _____ _____ _____ this book?\n\n");
+			else if (random[0] == 16)
+				printf("이 티셔츠 모자로 교환하고 싶어요 \nI would _____ to _____ this _____ _____ a _____.\n\n");
+			else if (random[0] == 17)
+				printf("내 친구가 이 색깔이 나에게 어울리지 않는다고 말했어.\nMy friend _____ that the _____ _____ _____ _____ _____ me.\n\n");
+			else if (random[0] == 18)
+				printf("당신이 영수증을  갖고 잇지 않으면, 환불받기 어려워요\n_____ you don`t _____ the _____, it`s _____ _____ _____ a _____\n\n");
+			else if (random[0] == 19)
+				printf("나 지금까지 장난감 사는데 너무 많이 지출했어.\nI _____ _____ _____ too _____ on _____ _____.\n\n");
+			else if (random[0] == 20)
+				printf("난 이문제를 어떻게 풀어야 할지 모르겠어.\nI _____ know _____ _____ _____ this _____.\n\n");
+			else
+				printf("와 모든 문제를 맞추셨군요 축하합니다~!");
+			int a;
+			scanf_s("%d", &a);
+			if (a == 1)
+				for (int i = 0; i < 20; i++) {
+					if (random[i + 1] == 0) {
+						random[i] = 0;
+					}
+					else {
+						int temp = random[i];
+						random[i] = random[i + 1];
+						random[i + 1] = temp;
+					}
+
+				}
+			if (a == 2)
+				for (int i = 0; i < 20; i++) {
+					if (random[i + 1] != 0) {
+						int temp = random[i];
+						random[i] = random[i + 1];
+						random[i + 1] = temp;
+					}
+				}
+		}
+		printf("끝");
+		break;
+
+	}
+}
